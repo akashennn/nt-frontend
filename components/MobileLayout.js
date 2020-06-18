@@ -9,8 +9,8 @@ import React from "react";
 
 import navButtons from "../config/buttons";
 
-const Layout = (props) => {
-    const appTitle = `>ShopNoon Desktop`;
+const MobileLayout = (props) => {
+    const appTitle = `>ShopNoon Mobile`;
 
     return (
         <div className="layout">
@@ -21,12 +21,10 @@ const Layout = (props) => {
             </Head>
 
             <Header appTitle={appTitle}/>
-
-            <NavBar navButtons={navButtons}/>
-
             <div className="content">{props.children}</div>
+            <NavBar navButtons={navButtons}/>
         </div>
     );
 };
 
-export default Layout;
+export default MobileLayout;
