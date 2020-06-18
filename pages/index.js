@@ -9,7 +9,7 @@ const Index = (props) => {
     if (props.isMobileView) {
         return (<MobileLayout>
             <div>
-                <h1 className="welcome-message">Welcome to ShopNoon Desktop!</h1>
+                <h1 className="welcome-message">Welcome to ShopNoon Mobile!</h1>
                 {props.getAllPostData.map(d =>
                     // <p>{d.id}</p>
                     <div className="card">
