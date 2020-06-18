@@ -21,8 +21,8 @@ const Favourite = (props) => {
                             </div>
                             <div className="card-body">
                                 <p className="title">{d.title}</p>
-                                <p className="price">{d.currency}{d.price}</p>
-                                <p className="likes"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes</p>
+                                <p className="price">{d.currency} {d.price}</p>
+                                <br/>
                                 <p className="description">{d.description}</p>
                                 <p className="hashtags">{d.hashtags}</p>
                             </div>
@@ -52,8 +52,8 @@ const Favourite = (props) => {
                             </div>
                             <div className="card-body">
                                 <p className="title">{d.title}</p>
-                                <p className="price">{d.currency}{d.price}</p>
-                                <p className="likes"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes</p>
+                                <p className="price">{d.currency} {d.price}</p>
+                                <br/>
                                 <p className="description">{d.description}</p>
                                 <p className="hashtags">{d.hashtags}</p>
                             </div>
