@@ -1,6 +1,6 @@
 @import "../theme/theme";
 
-.Layout {
+.layout {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   height: 100%;
   width: 100%;
 
-  .Content {
+  .content {
     flex: 1;
     display: flex;
     justify-content: center;

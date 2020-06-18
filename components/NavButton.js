@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
 
-import "./NavButton.scss";
+import "./nav-btn.scss";
 import React from "react";
 
 const NavButton = props => (
     <Link href={props.path}>
         <div
-            className={`NavButton ${
+            className={`nav-btn ${
                 props.router.pathname === props.path ? "active" : ""
             }`}
         >
-            <div className="Icon">{props.icon}</div>
-            <span className="Label">{props.label}</span>
+            <div className="icon">{props.icon}</div>
+            <span className="label">{props.label}</span>
         </div>
     </Link>
 );

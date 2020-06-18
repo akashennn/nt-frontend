@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import "./Header.scss";
+import "./header.scss";
 import React from "react";
 
 const Header = props => (
     <Link href="/">
-        <div className="Header">{props.appTitle}</div>
+        <div className="header">{props.appTitle}</div>
     </Link>
 );
 

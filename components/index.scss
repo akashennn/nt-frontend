@@ -1,3 +1,6 @@
+@import "../theme/theme";
+@import "~bootstrap/scss/bootstrap";
+
 * {
   box-sizing: border-box;
 }
@@ -25,4 +28,55 @@ code {
 #root {
   display: flex;
   flex-direction: column;
+}
+
+.card {
+  float: none;
+  margin: 0 auto 20px;
+  width: 30rem;
+  background-color: $primary;
+
+  .card-header{
+    background-color: $primary;
+    .seller-image{
+      display: inline-block;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+    .seller-username {
+      display: inline-block;
+      color: $secondary-dark;
+    }
+  ;
+  }
+  .card-body {
+    .card-title {
+      color: $secondary-dark;
+    }
+
+    p {
+      padding: 0;
+      margin: 0;
+      color: $secondary-dark;
+    }
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.welcome-message {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .card {
+    width: 20rem;
+  }
 }
