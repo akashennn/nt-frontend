@@ -9,7 +9,7 @@ const Index = (props) => {
     if (props.isMobileView) {
         return (<MobileLayout>
             <div>
-                <h1 className="welcome-message">Welcome to ShopNoon Mobile!</h1>
+                <h1 className="welcome-message">Welcome to ShopNoon Desktop!</h1>
                 {props.getAllPostData.map(d =>
                     // <p>{d.id}</p>
                     <div className="card">
@@ -24,16 +24,16 @@ const Index = (props) => {
                              alt="Card image cap"/>
                         <div className="card-body">
                             <p className="title">{d.title}</p>
-                            <p className="price">{d.currency}{d.price}</p>
-                            <p className="likes"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes</p>
+                            <p className="price">{d.currency} {d.price}</p>
+                            <br/>
                             <p className="description">{d.description}</p>
                             <p className="hashtags">{d.hashtags}</p>
+                        </div>
+                        <div className="card-footer">
+                            <small className="text-muted"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes • View {d.no_of_comments} comments</small>
                             <button className="favourite btn btn-dark" onClick={() => favouritePost({d})}>
                                 <FontAwesomeIcon
                                     icon={faHeart}/></button>
-                        </div>
-                        <div className="card-footer">
-                            <small className="text-muted">View {d.no_of_comments} comments</small>
                         </div>
                     </div>
                 )}
@@ -57,16 +57,16 @@ const Index = (props) => {
                              alt="Card image cap"/>
                         <div className="card-body">
                             <p className="title">{d.title}</p>
-                            <p className="price">{d.currency}{d.price}</p>
-                            <p className="likes"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes</p>
+                            <p className="price">{d.currency} {d.price}</p>
+                            <br/>
                             <p className="description">{d.description}</p>
                             <p className="hashtags">{d.hashtags}</p>
+                        </div>
+                        <div className="card-footer">
+                            <small className="text-muted"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes • View {d.no_of_comments} comments</small>
                             <button className="favourite btn btn-dark" onClick={() => favouritePost({d})}>
                                 <FontAwesomeIcon
                                     icon={faHeart}/></button>
-                        </div>
-                        <div className="card-footer">
-                            <small className="text-muted">View {d.no_of_comments} comments</small>
                         </div>
                     </div>
                 )}
