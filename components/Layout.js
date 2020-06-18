@@ -2,7 +2,8 @@ import Head from "next/head";
 
 import Header from "./Header";
 import NavBar from "./NavBar";
-
+import ReactNotification from 'react-notifications-component'
+import "react-notifications-component/dist/scss/notification.scss"
 import "./layout.scss";
 import "./index.scss";
 import React from "react";
@@ -21,11 +22,14 @@ const Layout = (props) => {
             </Head>
 
             <div className="container-fluid">
+                <ReactNotification />
                 <Header appTitle={appTitle}/>
 
                 <NavBar navButtons={navButtons}/>
 
-                <div className="content">{props.children}</div>
+                <div className="content">
+                    {props.children}
+                </div>
             </div>
         </div>
     );

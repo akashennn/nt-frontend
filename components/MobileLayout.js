@@ -8,6 +8,8 @@ import "./index.scss";
 import React from "react";
 
 import navButtons from "../config/buttons";
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/scss/notification.scss"
 
 const MobileLayout = (props) => {
     const appTitle = `>ShopNoon Mobile`;
@@ -20,6 +22,7 @@ const MobileLayout = (props) => {
                 <meta charSet="utf-8"/>
             </Head>
 
+            <ReactNotification />
             <Header appTitle={appTitle}/>
             <div className="content">{props.children}</div>
             <NavBar navButtons={navButtons}/>

@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import React from "react";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import Router from "next/router";
+import {store} from 'react-notifications-component';
 import MobileLayout from "../components/MobileLayout";
 
 const Index = (props) => {
@@ -30,7 +30,8 @@ const Index = (props) => {
                             <p className="hashtags">{d.hashtags}</p>
                         </div>
                         <div className="card-footer">
-                            <small className="text-muted"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes • View {d.no_of_comments} comments</small>
+                            <small className="text-muted"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes •
+                                View {d.no_of_comments} comments</small>
                             <button className="favourite btn btn-dark" onClick={() => favouritePost({d})}>
                                 <FontAwesomeIcon
                                     icon={faHeart}/></button>
@@ -63,7 +64,8 @@ const Index = (props) => {
                             <p className="hashtags">{d.hashtags}</p>
                         </div>
                         <div className="card-footer">
-                            <small className="text-muted"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes • View {d.no_of_comments} comments</small>
+                            <small className="text-muted"><FontAwesomeIcon icon={faHeart}/> {d.no_of_favourites} likes •
+                                View {d.no_of_comments} comments</small>
                             <button className="favourite btn btn-dark" onClick={() => favouritePost({d})}>
                                 <FontAwesomeIcon
                                     icon={faHeart}/></button>
@@ -112,9 +114,35 @@ function favouritePost(post) {
                 "seller_image": post.d.seller_image
             })
         });
-        const content = await rawResponse.json();
-        if (content.data.code === 200) {
-            Router.push('/dashboard')
+
+        if (rawResponse.status !== 200) {
+            store.addNotification({
+                title: "Couldn't add to favourites!",
+                message: "You've saved this post already.",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                    duration: 2000,
+                    onScreen: true
+                }
+            });
+        } else {
+            store.addNotification({
+                title: "Added to favourites!",
+                message: " ",
+                type: "success",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                    duration: 2000,
+                    onScreen: true
+                }
+            });
         }
     })();
 }

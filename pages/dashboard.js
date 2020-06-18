@@ -1,8 +1,7 @@
 import Layout from "../components/Layout";
 import React from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import MobileLayout from "../components/MobileLayout";
+import {store} from "react-notifications-component";
 
 const Favourite = (props) => {
     if (props.isMobileView) {
@@ -99,8 +98,34 @@ function deleteFavourite(post) {
                 'Content-Type': 'application/json'
             },
         });
-        const content = await rawResponse.json();
-        if (content.data.code === 200) {
+        if (rawResponse.status !== 200) {
+            store.addNotification({
+                title: "Couldn't delete to favourites!",
+                message: "You've deleted this post already.",
+                type: "danger",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                    duration: 1000,
+                    onScreen: true
+                }
+            });
+        } else {
+            store.addNotification({
+                title: "Favourites deleted successfully!",
+                message: " ",
+                type: "success",
+                insert: "top",
+                container: "top-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                    duration: 1000,
+                    onScreen: true
+                }
+            });
             window.location.reload();
         }
     })();
