@@ -25,6 +25,10 @@ code {
   monospace;
 }
 
+.container-fluid{
+  padding: 0;
+}
+
 #root {
   display: flex;
   flex-direction: column;

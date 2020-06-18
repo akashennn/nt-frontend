@@ -20,11 +20,13 @@ const Layout = (props) => {
                 <meta charSet="utf-8"/>
             </Head>
 
-            <Header appTitle={appTitle}/>
+            <div className="container-fluid">
+                <Header appTitle={appTitle}/>
 
-            <NavBar navButtons={navButtons}/>
+                <NavBar navButtons={navButtons}/>
 
-            <div className="content">{props.children}</div>
+                <div className="content">{props.children}</div>
+            </div>
         </div>
     );
 };
