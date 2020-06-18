@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next -p 8090",
-    "build": "next build",
-    "start": "next start"
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": ["next.js"],
   "author": "Akash Perera | akashennn",
