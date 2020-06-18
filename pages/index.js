@@ -83,7 +83,7 @@ Index.getInitialProps = async function (ctx) {
         /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
     )
 
-    const getAllPost = await fetch('http://noont-backend.herokuapp.com/v1.0/posts');
+    const getAllPost = await fetch('https://noont-backend.herokuapp.com/v1.0/posts');
     const response = await getAllPost.json();
     return {
         isMobileView: Boolean(isMobileView),
@@ -94,7 +94,7 @@ Index.getInitialProps = async function (ctx) {
 // Favourite Post
 function favouritePost(post) {
     (async () => {
-        const rawResponse = await fetch('http://noont-backend.herokuapp.com/v1.0/users/123/favourites', {
+        const rawResponse = await fetch('https://noont-backend.herokuapp.com/v1.0/users/123/favourites', {
             method: 'PATCH',
             headers: {
                 'Accept': 'application/json',

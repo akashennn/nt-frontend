@@ -80,7 +80,7 @@ Favourite.getInitialProps = async function (ctx) {
         /Android|BlackBerry|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i
     )
 
-    const getAllPost = await fetch('http://noont-backend.herokuapp.com/v1.0/users/123/favourites');
+    const getAllPost = await fetch('https://noont-backend.herokuapp.com/v1.0/users/123/favourites');
     const response = await getAllPost.json();
     return {
         isMobileView: Boolean(isMobileView),
@@ -91,7 +91,7 @@ Favourite.getInitialProps = async function (ctx) {
 // Delete Favourite
 function deleteFavourite(post) {
     (async () => {
-        const url = "http://noont-backend.herokuapp.com/v1.0/users/123/favourites/posts/" + post.d.post_id
+        const url = "https://noont-backend.herokuapp.com/v1.0/users/123/favourites/posts/" + post.d.post_id
         const rawResponse = await fetch(url, {
             method: 'DELETE',
             headers: {
