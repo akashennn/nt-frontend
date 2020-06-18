@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import React from "react";
 import {faHeart} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import Router from "next/router";
 
 const Index = (props) => (
     <Layout>
@@ -37,7 +38,7 @@ const Index = (props) => (
     </Layout>
 );
 
-// todo change url
+// Get All Posts
 Index.getInitialProps = async function () {
     const getAllPost = await fetch('http://noont-backend.herokuapp.com/v1.0/posts');
     const response = await getAllPost.json();
@@ -46,6 +47,7 @@ Index.getInitialProps = async function () {
     };
 }
 
+// Favourite Post
 function favouritePost(post) {
     (async () => {
         const rawResponse = await fetch('http://noont-backend.herokuapp.com/v1.0/users/123/favourites', {
@@ -67,7 +69,9 @@ function favouritePost(post) {
             })
         });
         const content = await rawResponse.json();
-        console.log(content);
+        if (content.data.code === 200) {
+            Router.push('/dashboard')
+        }
     })();
 }
 
