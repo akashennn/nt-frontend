@@ -4,8 +4,9 @@
   "description": "Next.js React Web Frontend for nt-backend",
   "main": "index.js",
   "scripts": {
-    "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build"
+    "dev": "next -p 8090",
+    "build": "next build",
+    "start": "next start -p $PORT"
   },
   "keywords": ["next.js"],
   "author": "Akash Perera | akashennn",
