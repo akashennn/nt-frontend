@@ -4,7 +4,6 @@
   "description": "Next.js React Web Frontend for nt-backend",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 8090",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build"
   },
